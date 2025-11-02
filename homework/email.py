@@ -41,6 +41,12 @@ corporate_domains = [
     'organization.org', 'company.ru', 'business.net'
 ]
 
+personal_domains = list(set(personal_domains))
+corporate_domains = list(set(corporate_domains))
+
+print(personal_domains)
+print(corporate_domains)
+
 # проверка, что между доменами нет пересечений
 # альтернативная запись
 # intersection = set(personal_domains).intersection(corporate_domains)
@@ -67,8 +73,8 @@ pages = math.ceil(len(email["sent_text"]) / 500)
 print("Количество страниц:", pages)
 
 # проверка пустоты темы и тела письма c помощью булева
-is_subject_empty = not email["subject"]
-is_body_empty = not email["body"]
+is_subject_empty = not email["subject"].strip()
+is_body_empty = not email["body"].strip()
 
 print("Пустая тема письма", is_subject_empty)
 print("Пустое тело письма", is_body_empty)
